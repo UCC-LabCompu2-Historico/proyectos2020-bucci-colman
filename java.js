@@ -276,6 +276,6 @@ function graficopbii(Consumo1,Inversion1, Gasto1,Exportaciones1,Importaciones1) 
     ctx.beginPath();
     ctx.font = "20px Arial";
     ctx.fillStyle = "black";
-    ctx.fillText("PBI 2" , 600 , 80);
+    ctx.fillText("PBI 2" , 800 , 80);
     ctx.closePath();
 }
