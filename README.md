@@ -3,6 +3,11 @@
 producidos por un país o región en un determinado periodo de tiempo, normalmente un año. Se utiliza para medir la riqueza de un país.
 También se conoce como producto bruto interno (PBI).
 
+#El Proyecto sirve para:
+-Calcular el PBI 
+-Graficar y comparar el PBI
+-Aprender de teoria
+
 ## Los atuores de la pagina son:
 -Tomas Bucci
 -Colman Nicolas
@@ -11,3 +16,6 @@ También se conoce como producto bruto interno (PBI).
 -Git hub
 -Webstorm
 -Balsamic Wireframes
+-HTML 5
+-CSS
+-JavaScript

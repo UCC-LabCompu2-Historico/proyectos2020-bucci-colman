@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="estilo.css" type="text/css">
     <meta content="Bucci Y Colman" name="author">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="java.js"></script>
 
 </head>
 <body>
-
+<body onload="grafico()">
 <nav>
     <ul>
         <li><a href="Explicacion.html">EXPLICACION</a></li>
@@ -27,31 +28,73 @@
     </header>
 </nav>
 <div>
-    <h3>Calculo</h3>
+    <h3>Pbi 1</h3>
+    <form id="datos">
     <p>
+
         <label for="Consumo">
         </label><input id="Consumo" type="number" min="0" max="1000000000" name="Consumo" placeholder="Consumo">
         +
         <label for="Inversion"></label>
         <input id="Inversion" type="number" min="0" max="1000000000" name="Inversion" placeholder="Inversion">
         +
-        <label for="Gasto Publico"></label>
-        <input id="Gasto Publico" type="number" min="0" max="1000000000" name="Gasto Publico" placeholder="Gasto Publico">
+        <label for="Gasto_Publico"></label>
+        <input id="Gasto_Publico" type="number" min="0" max="1000000000" name="Gasto_Publico" placeholder="Gasto Publico">
         + (
         <label for="Exportaciones"></label>
         <input id="Exportaciones" type="number" min="0" max="1000000000" name="Exportaciones" placeholder="Exportaciones">
         -
         <label for="Importaciones"></label>
         <input id="Importaciones" type="number" min="0" max="1000000000" name="Importaciones" placeholder="Importaciones">
-        ) = resultado
+
+        )
+        <button type="button" id="calcular" name="calcular" onclick="CalculoPBI(Consumo.value , Inversion.value , Gasto_Publico.value , Exportaciones.value , Importaciones.value)">Calcular</button>
+        <button type="button" name="resetear_datos" onclick="resetear1()">Resetear</button>
+        <button type="button" name="dibujar" onclick="graficopbi(Consumo.value , Inversion.value , Gasto_Publico.value , Exportaciones.value , Importaciones.value)">graficar</button>
+    </p>
+</form>
+</div>
+<div>
+    <h3>PBI 2</h3>
+    <form id="dato1">
+        <p>
+
+            <label for="Consumo1">
+            </label><input id="Consumo1" type="number" min="0" max="1000000000" name="Consumo1" placeholder="Consumo">
+            +
+            <label for="Inversion1"></label>
+            <input id="Inversion1" type="number" min="0" max="1000000000" name="Inversion1" placeholder="Inversion">
+            +
+            <label for="Gasto_Publico1"></label>
+            <input id="Gasto_Publico1" type="number" min="0" max="1000000000" name="Gasto_Publico1" placeholder="Gasto Publico">
+            + (
+            <label for="Exportaciones1"></label>
+            <input id="Exportaciones1" type="number" min="0" max="1000000000" name="Exportaciones1" placeholder="Exportaciones">
+            -
+            <label for="Importaciones1"></label>
+            <input id="Importaciones1" type="number" min="0" max="1000000000" name="Importaciones1" placeholder="Importaciones">
+
+            )
+            <button type="button" id="calcular1" name="calcular1" onclick="CalculoPBI_(Consumo1.value , Inversion1.value , Gasto_Publico1.value , Exportaciones1.value , Importaciones1.value)">Calcular</button>
+            <button type="button" name="resetear_datos" onclick="resetear()">Resetear</button>
+            <button type="button" name="dibujar" onclick="graficopbii(Consumo1.value , Inversion1.value , Gasto_Publico1.value , Exportaciones1.value , Importaciones1.value)">graficar</button>
+        </p>
+    </form>
+</div>
+<div>
+
+    <h2>Resultados:</h2>
+    <p>Pbi de 2019: <span id="pbi"></span></p>
+
+    <p>Pbi de 2020: <span id="_pbi"></span></p>
+
+
 </div>
 
 <div>
     <h3>Grafico</h3>
-    <canvas>
+    <canvas id="myCanvas" width="1200px" height="800px"></canvas>
 
-
-    </canvas>
 </div>
 <footer>
     <div class="pie">
