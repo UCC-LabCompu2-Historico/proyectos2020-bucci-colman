@@ -35,6 +35,7 @@ function CalculoPBI(Consumo,Inversion, Gasto,Exportaciones,Importaciones){
  */
 
 function CalculoPBI_(Consumo1,Inversion1, Gasto1,Exportaciones1,Importaciones1){
+    var _pbi
 
 
     //calculo el pbi
@@ -115,7 +116,7 @@ function grafico() {
     ctx.closePath();
 
     var Anios = 2019;
-    var Tasa = 700;
+    var Tasa = 50;
     //Anios
     ctx.beginPath();
     for(i = X + 250; i < ancho - Y; i += 600){
@@ -131,7 +132,7 @@ function grafico() {
     for(var i = altura - Y - 50; i > Y; i -= 50){
         ctx.font = "15px Arial";
         ctx.fillText(Tasa , X - 35 , i);
-        Tasa-=50;
+        Tasa+=50;
     }
     ctx.closePath();
 
@@ -150,11 +151,12 @@ function grafico() {
     ctx.fillStyle = "black";
     ctx.fillText("PBI" , X - 15 , Y - 10);
     ctx.closePath();
+
 }
 
 /**
  * Funcion que resetea los datos.
- * @method reseteardatos.
+ * @method reseteardatos1.
  * @return
  */
 function reseteardatos1(){
@@ -217,27 +219,29 @@ function graficopbi (pbi) {
 
 }
 /**
- * Funcion que dibuja la parabola en el lienzo.
+ * Funcion que dibuja el pbi.
  * @method graficopbi
  * @param {number} pbi  - Total.
  */
 function graficopbi(Consumo,Inversion, Gasto,Exportaciones,Importaciones) {
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
-    console.log(Consumo,Inversion, Gasto,Exportaciones,Importaciones);
     pbi = Number(Consumo)+Number(Inversion)+Number(Gasto)+(Number(Exportaciones)-Number(Importaciones));
     var altura = canvas.height;
     var ancho = canvas.width;
     var X = 50;
     var Y = 60;
 
+    //reseteargrafico();
+
 
     ctx.beginPath();
-    ctx.moveTo(300 , altura-Y);
-    ctx.lineTo(300,  pbi);
-    ctx.strokeStyle = "#000000";
+    ctx.fillRect(250,altura - Y,100,-pbi);
+    ctx.lineWidth = 15;
+    ctx.lineCap = 'round';
+    ctx.fillStyle = "#FF3333";
     ctx.stroke();
-    ctx.closePath();
+    ctx.closePath()
 
 
 
@@ -249,27 +253,27 @@ function graficopbi(Consumo,Inversion, Gasto,Exportaciones,Importaciones) {
 }
 
 /**
- * Funcion que dibuja la parabola en el lienzo.
+ * Funcion que dibuja el pbi 2.
  * @method graficopbi
  * @param {number} pbi  - Total.
  */
 function graficopbii(Consumo1,Inversion1, Gasto1,Exportaciones1,Importaciones1) {
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
-    console.log(Consumo1,Inversion1, Gasto1,Exportaciones1,Importaciones1);
     _pbi = Number(Consumo1)+Number(Inversion1)+Number(Gasto1)+(Number(Exportaciones1)-Number(Importaciones1));
     var altura = canvas.height;
     var ancho = canvas.width;
     var X = 50;
     var Y = 60;
 
-
+    //reseteargrafico();
     ctx.beginPath();
-    ctx.moveTo(800 , altura-Y);
-    ctx.lineTo(800,  _pbi);
-    ctx.strokeStyle = "#000000";
+    ctx.fillRect(860,altura - Y,100,-_pbi);
+    ctx.lineWidth = 15;
+    ctx.lineCap = 'round';
+    ctx.fillStyle = "#FF3333";
     ctx.stroke();
-    ctx.closePath();
+    ctx.closePath()
 
 
 
@@ -278,4 +282,61 @@ function graficopbii(Consumo1,Inversion1, Gasto1,Exportaciones1,Importaciones1) 
     ctx.fillStyle = "black";
     ctx.fillText("PBI 2" , 800 , 80);
     ctx.closePath();
+}
+
+x=0;
+dx=2;
+
+/**
+ * Funcion  para animar la foto
+ * @method Foto animada.
+ * @return
+ */
+
+
+function animar1() {
+
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    canvas.width = canvas.width;
+
+
+    var img = new Image();
+    img.src = "Multimedia/maxresdefault.jpg ";
+
+
+    img.onload = function(){
+        ctx.drawImage(img,x, 0);
+    }
+
+    if (x>canvas.width-1000){
+
+        x=0;
+    }
+    x+=dx;
+
+}
+function animar2() {
+
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    canvas.width = canvas.width;
+
+
+    var img = new Image();
+    img.src = "Multimedia/crecimeinto-pbi.jpg ";
+
+
+    img.onload = function(){
+        ctx.drawImage(img,x, 0);
+    }
+
+    if (x>canvas.width-1000){
+
+        x=0;
+    }
+    x+=dx;
+
 }

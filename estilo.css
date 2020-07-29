@@ -62,4 +62,13 @@ nav ul li a{
     margin-bottom: 6px;
 
 }
+#myCanvas1{
+    background-color: lightsteelblue;
+    border-style: solid;
+    border-color: red;
+    margin: 4px;
+    margin-left: 20px;
+    margin-bottom: 6px;
+
+}
 
